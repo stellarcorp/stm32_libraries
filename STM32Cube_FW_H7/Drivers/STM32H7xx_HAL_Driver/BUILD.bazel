@@ -1,0 +1,26 @@
+cc_library(
+    name = "hal_driver_headers",
+    hdrs = glob(["Inc/*.h"]),
+    strip_include_prefix = "Inc",
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+)
+
+cc_library(
+    name = "STM32H7xx_HAL_Driver",
+    srcs = glob(
+        [
+            "Src/*.c",
+        ],
+    ),
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        ":hal_driver_headers",
+    ],
+)

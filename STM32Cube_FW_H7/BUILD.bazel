@@ -1,0 +1,5 @@
+filegroup(
+    name = "linker_script",
+    srcs = ["avr/cores/teensy4/imxrt1062.ld"],
+    visibility = ["//visibility:public"],
+)
