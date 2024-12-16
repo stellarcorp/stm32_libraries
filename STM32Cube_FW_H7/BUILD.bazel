@@ -1,5 +1,9 @@
-filegroup(
-    name = "linker_script",
-    srcs = ["avr/cores/teensy4/imxrt1062.ld"],
+cc_library(
     visibility = ["//visibility:public"],
+    deps = [
+        "//STM32Cube_FW_H7/Drivers/CMSIS",
+        "//STM32Cube_FW_H7/Drivers/CMSIS/DSP",
+        "//STM32Cube_FW_H7/Drivers/CMSIS/Device/ST/STM32H7xx",
+        "//STM32Cube_FW_H7/Drivers/STM32H7xx_HAL_Driver",
+    ],
 )
