@@ -1,4 +1,5 @@
 cc_library(
+    name = "STM32Cube_FW_H7",
     visibility = ["//visibility:public"],
     deps = [
         "//STM32Cube_FW_H7/Drivers/CMSIS",
