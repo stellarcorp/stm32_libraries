@@ -1,6 +1,10 @@
 cc_library(
-    name = "headers",
-    hdrs = glob(["Include/*.h"]),
+    name = "stm32h743xx_headers",
+    hdrs = [
+        "Include/stm32h743xx.h",
+        "Include/stm32h7xx.h",
+        "Include/system_stm32h7xx.h",
+    ],
     strip_include_prefix = "Include",
     target_compatible_with = [
         "@platforms//os:none",
@@ -9,13 +13,13 @@ cc_library(
 )
 
 cc_library(
-    name = "STM32H7xx",
+    name = "stm32h743xx",
     target_compatible_with = [
         "@platforms//os:none",
         "@platforms//cpu:armv7e-mf",
     ],
     visibility = ["//visibility:public"],
     deps = [
-        ":headers",
+        ":stm32h743xx_headers",
     ],
 )

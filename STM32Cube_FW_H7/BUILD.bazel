@@ -1,10 +1,8 @@
 cc_library(
-    name = "STM32Cube_FW_H7",
+    name = "nucleo_h743xx",
     visibility = ["//visibility:public"],
     deps = [
-        "//STM32Cube_FW_H7/Drivers/CMSIS",
-        "//STM32Cube_FW_H7/Drivers/CMSIS/DSP",
-        "//STM32Cube_FW_H7/Drivers/CMSIS/Device/ST/STM32H7xx",
-        "//STM32Cube_FW_H7/Drivers/STM32H7xx_HAL_Driver",
+        "//STM32Cube_FW_H7/Drivers/CMSIS:cortex_m7",
+        "//STM32Cube_FW_H7/Drivers/CMSIS/Device/ST/STM32H7xx:stm32h743xx",
     ],
 )

@@ -1,6 +1,16 @@
 cc_library(
-    name = "headers",
-    hdrs = glob(["Include/*.h"]),
+    name = "cortex_m7_headers",
+    hdrs = [
+        "Include/cmsis_armcc.h",
+        "Include/cmsis_armclang.h",
+        "Include/cmsis_armclang_ltm.h",
+        "Include/cmsis_compiler.h",
+        "Include/cmsis_gcc.h",
+        "Include/cmsis_iccarm.h",
+        "Include/cmsis_version.h",
+        "Include/core_cm7.h",
+        "Include/mpu_armv7.h",
+    ],
     strip_include_prefix = "Include",
     target_compatible_with = [
         "@platforms//os:none",
@@ -9,13 +19,13 @@ cc_library(
 )
 
 cc_library(
-    name = "CMSIS",
+    name = "cortex_m7",
     target_compatible_with = [
         "@platforms//os:none",
         "@platforms//cpu:armv7e-mf",
     ],
     visibility = ["//visibility:public"],
     deps = [
-        ":headers",
+        ":cortex_m7_headers",
     ],
 )
