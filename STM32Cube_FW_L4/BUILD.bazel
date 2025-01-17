@@ -1,4 +1,22 @@
 cc_library(
+    name = "nucleo_l412xx",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//STM32Cube_FW_L4/Drivers/CMSIS:cortex_m4",
+        "//STM32Cube_FW_L4/Drivers/CMSIS/Device/ST/STM32L4xx:stm32l412xx",
+    ],
+)
+
+cc_library(
+    name = "nucleo_l432xx",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//STM32Cube_FW_L4/Drivers/CMSIS:cortex_m4",
+        "//STM32Cube_FW_L4/Drivers/CMSIS/Device/ST/STM32L4xx:stm32l432xx",
+    ],
+)
+
+cc_library(
     name = "nucleo_l452xx",
     visibility = ["//visibility:public"],
     deps = [

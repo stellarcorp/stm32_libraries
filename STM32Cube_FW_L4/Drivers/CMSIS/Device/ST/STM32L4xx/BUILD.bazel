@@ -1,4 +1,56 @@
 cc_library(
+    name = "stm32l412xx_headers",
+    hdrs = [
+        "Include/stm32l412xx.h",
+        "Include/stm32l4xx.h",
+        "Include/system_stm32l4xx.h",
+    ],
+    strip_include_prefix = "Include",
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+)
+
+cc_library(
+    name = "stm32l412xx",
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        ":stm32l412xx_headers",
+    ],
+)
+
+cc_library(
+    name = "stm32l432xx_headers",
+    hdrs = [
+        "Include/stm32l432xx.h",
+        "Include/stm32l4xx.h",
+        "Include/system_stm32l4xx.h",
+    ],
+    strip_include_prefix = "Include",
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+)
+
+cc_library(
+    name = "stm32l432xx",
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        ":stm32l432xx_headers",
+    ],
+)
+
+cc_library(
     name = "stm32l452xx_headers",
     hdrs = [
         "Include/stm32l452xx.h",
