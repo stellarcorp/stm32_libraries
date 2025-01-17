@@ -1,0 +1,25 @@
+cc_library(
+    name = "stm32l452xx_headers",
+    hdrs = [
+        "Include/stm32l452xx.h",
+        "Include/stm32l4xx.h",
+        "Include/system_stm32l4xx.h",
+    ],
+    strip_include_prefix = "Include",
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+)
+
+cc_library(
+    name = "stm32l452xx",
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        ":stm32l452xx_headers",
+    ],
+)
