@@ -87,7 +87,7 @@
 /** @defgroup HAL_Exported_Variables HAL Exported Variables
   * @{
   */
-__IO uint64_t uwTick;
+__attribute__((section(".status.time"))) __IO uint64_t uwTick;
 uint32_t uwTickPrio = (1UL << __NVIC_PRIO_BITS); /* Invalid priority */
 HAL_TickFreqTypeDef uwTickFreq = HAL_TICK_FREQ_DEFAULT;  /* 1KHz */
 /**
