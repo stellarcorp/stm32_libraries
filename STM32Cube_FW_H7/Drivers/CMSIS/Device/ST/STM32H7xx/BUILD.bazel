@@ -1,5 +1,23 @@
+# All of the headers. Using these libraries requires defining symbols such as STM32H743xx, etc.
+# before including these headers. This library matches the expectations of the HAL library from
+# ST Micro.
 cc_library(
-    name = "stm32h743xx_headers",
+    name = "STM32H7xx",
+    hdrs = glob(["Include/**/*.h"]),
+    strip_include_prefix = "Include",
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//STM32Cube_FW_H7/Drivers/CMSIS:cortex_m7",
+    ],
+)
+
+# Platform-specific headers. These are most useful when not using the HAL library from ST Micro.
+cc_library(
+    name = "stm32h743xx",
     hdrs = [
         "Include/stm32h743xx.h",
         "Include/stm32h7xx.h",
@@ -10,16 +28,8 @@ cc_library(
         "@platforms//os:none",
         "@platforms//cpu:armv7e-mf",
     ],
-)
-
-cc_library(
-    name = "stm32h743xx",
-    target_compatible_with = [
-        "@platforms//os:none",
-        "@platforms//cpu:armv7e-mf",
-    ],
     visibility = ["//visibility:public"],
     deps = [
-        ":stm32h743xx_headers",
+        "//STM32Cube_FW_H7/Drivers/CMSIS:cortex_m7",
     ],
 )

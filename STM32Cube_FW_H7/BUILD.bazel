@@ -6,3 +6,12 @@ cc_library(
         "//STM32Cube_FW_H7/Drivers/CMSIS/Device/ST/STM32H7xx:stm32h743xx",
     ],
 )
+
+cc_library(
+    name = "nucleo_h743xx_hal",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":nucleo_h743xx",
+        "//STM32Cube_FW_H7/Drivers/STM32H7xx_HAL_Driver",
+    ],
+)

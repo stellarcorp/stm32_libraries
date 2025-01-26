@@ -8,6 +8,15 @@ cc_library(
 )
 
 cc_library(
+    name = "nucleo_l412xx_hal",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":nucleo_l412xx",
+        "//STM32Cube_FW_L4/Drivers/STM32L4xx_HAL_Driver",
+    ],
+)
+
+cc_library(
     name = "nucleo_l432xx",
     visibility = ["//visibility:public"],
     deps = [
@@ -17,10 +26,28 @@ cc_library(
 )
 
 cc_library(
+    name = "nucleo_l432xx_hal",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":nucleo_l432xx",
+        "//STM32Cube_FW_L4/Drivers/STM32L4xx_HAL_Driver",
+    ],
+)
+
+cc_library(
     name = "nucleo_l452xx",
     visibility = ["//visibility:public"],
     deps = [
         "//STM32Cube_FW_L4/Drivers/CMSIS:cortex_m4",
         "//STM32Cube_FW_L4/Drivers/CMSIS/Device/ST/STM32L4xx:stm32l452xx",
+    ],
+)
+
+cc_library(
+    name = "nucleo_l452xx_hal",
+    visibility = ["//visibility:public"],
+    deps = [
+        ":nucleo_l452xx",
+        "//STM32Cube_FW_L4/Drivers/STM32L4xx_HAL_Driver",
     ],
 )

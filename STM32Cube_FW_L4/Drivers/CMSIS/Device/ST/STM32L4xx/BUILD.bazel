@@ -1,5 +1,23 @@
+# All of the headers. Using these libraries requires defining symbols such as STM32L412xx,
+# STM32L432xx, STM32L452xx, etc. before including these headers. This library matches the
+# expectations of the HAL library from ST Micro.
 cc_library(
-    name = "stm32l412xx_headers",
+    name = "STM32L4xx",
+    hdrs = glob(["Include/**/*.h"]),
+    strip_include_prefix = "Include",
+    target_compatible_with = [
+        "@platforms//os:none",
+        "@platforms//cpu:armv7e-mf",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//STM32Cube_FW_L4/Drivers/CMSIS:cortex_m4",
+    ],
+)
+
+# Platform-specific headers. These are most useful when not using the HAL library from ST Micro.
+cc_library(
+    name = "stm32l412xx",
     hdrs = [
         "Include/stm32l412xx.h",
         "Include/stm32l4xx.h",
@@ -10,22 +28,14 @@ cc_library(
         "@platforms//os:none",
         "@platforms//cpu:armv7e-mf",
     ],
-)
-
-cc_library(
-    name = "stm32l412xx",
-    target_compatible_with = [
-        "@platforms//os:none",
-        "@platforms//cpu:armv7e-mf",
-    ],
     visibility = ["//visibility:public"],
     deps = [
-        ":stm32l412xx_headers",
+        "//STM32Cube_FW_L4/Drivers/CMSIS:cortex_m4",
     ],
 )
 
 cc_library(
-    name = "stm32l432xx_headers",
+    name = "stm32l432xx",
     hdrs = [
         "Include/stm32l432xx.h",
         "Include/stm32l4xx.h",
@@ -36,22 +46,14 @@ cc_library(
         "@platforms//os:none",
         "@platforms//cpu:armv7e-mf",
     ],
-)
-
-cc_library(
-    name = "stm32l432xx",
-    target_compatible_with = [
-        "@platforms//os:none",
-        "@platforms//cpu:armv7e-mf",
-    ],
     visibility = ["//visibility:public"],
     deps = [
-        ":stm32l432xx_headers",
+        "//STM32Cube_FW_L4/Drivers/CMSIS:cortex_m4",
     ],
 )
 
 cc_library(
-    name = "stm32l452xx_headers",
+    name = "stm32l452xx",
     hdrs = [
         "Include/stm32l452xx.h",
         "Include/stm32l4xx.h",
@@ -62,16 +64,8 @@ cc_library(
         "@platforms//os:none",
         "@platforms//cpu:armv7e-mf",
     ],
-)
-
-cc_library(
-    name = "stm32l452xx",
-    target_compatible_with = [
-        "@platforms//os:none",
-        "@platforms//cpu:armv7e-mf",
-    ],
     visibility = ["//visibility:public"],
     deps = [
-        ":stm32l452xx_headers",
+        "//STM32Cube_FW_L4/Drivers/CMSIS:cortex_m4",
     ],
 )
